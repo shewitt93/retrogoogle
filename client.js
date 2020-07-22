@@ -12,16 +12,16 @@ imFeelingLucky.addEventListener("submit", imFeelingLuckyFunc);
 
 function googleSearchFunc(e) {
     e.preventDefault();
-    const title = document.getElementById("title");
-    const image = document.getElementById("image");
-    const text = document.getElementById("description");
+    const title = document.getElementById("title"); //
+    const image = document.getElementById("image"); //
+    const text = document.getElementById("description"); //
     // console.log("You clicked the google search button!");
-    axios.get("http://localhost:3000/search/animal/:id")
+    axios.get("http://localhost:3000/search/animal/:id") //
     .then(function(r){
         title.innerHTML= r.data.name;
         image.setAttribute("src", r.data.image);
         text.innerHTML = r.data.description;
-    })
+    }) //
 };
 
 function imFeelingLuckyFunc(e) {
