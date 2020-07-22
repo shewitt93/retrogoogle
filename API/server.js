@@ -19,28 +19,51 @@ const animals = [
     {name: "Siberian Tiger", image: "https://images.unsplash.com/photo-1524132989408-c8ee48d8f147?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80", description: "The Siberian tiger is a population of Panthera tigris tigris native to the Russian Far East and Northeast China, and possibly North Korea. It once ranged throughout the Korean Peninsula, north China, Russian Far East, and eastern Mongolia."}
 ];
 
-let number;
 
-function getRandomAnimalNo(){
-    number = Math.floor(Math.random()*10);
-    return number;
-}
+
+
 
 app.get('/', (req, res) => res.send('Hello World!'))
 
-app.get('/search/animal/:id', function(req, res){
-    // generate random number that equates to animal
-    getRandomAnimalNo();
+app.get('/animal', (req,res)=>{ res.send(animals)})
 
-    // send the random animal
-    let animal = animals[number];
-    if(!animal) {
-        res.send("Error: Please pick a number between 0 and 9");
-    } else {
-        res.send(animal);
-    };
+
+app.get("/search", (req,res)=> {
+ let search = req.query.q;
+ let choice = searchTerm(search);
+ choice.length > 0 ? res.send(JSON.stringify(choice.slice(0, 10))): res.send(JSON.stringify(`"${search}" returned no results!`));
+
 });
 
-app.get('/search/animal', (req,res)=> res.send(animals))
+app.get("/lucky", (req,res)=>{
+    let Lucky = req.query.q;
+    let choice = searchTerm(Lucky);
+    choice.length > 0? res.send(JSON.stringify(choice[0]))
+    : res.send(JSON.stringify(`"${ucky}" returned no results!`));
+
+})
+
+
+const searchTerm = (objectReturn) => {
+    return animals.filter((animal)=>
+    animal.name.includes(objectReturn) ||
+    animal.image.includes(objectReturn) ||
+    animal.description.includes(objectReturn)
+  );
+}
+// app.get('/search/animal/:id', function(req, res){
+//     // generate random number that equates to animal
+//     getRandomAnimalNo();
+
+//     // send the random animal
+//     let animal = animals[number];
+//     if(!animal) {
+//         res.send("Error: Please pick a number between 0 and 9");
+//     } else {
+//         res.send(animal);
+//     };
+// });
+
+
 
 app.listen(port, () => console.log(`Express now departing from http://localhost:${port}`))

@@ -13,7 +13,7 @@ body {
   display: flex;
   justify-content: center;
 }
-section {
+.section {
   
  
   padding: 10px;
@@ -28,10 +28,21 @@ section {
   align-items: center;
   text-align: center;
   }
+#hidden{
+  display: none;
+
+}
+#visible{
+  display: flex;
   
 
+} 
+.results>section{
+  display: flex;
+  width: 5%;
+}
   
-   h3 {
+h3 {
     font-family: 'Press Start 2P', cursive;
     font-size: 50px;
   }
