@@ -84,10 +84,10 @@ h3 {
 
 
   a{text-decoration:none;}
-  /*Add the following compatibility code for IE as you can't animate background-size in IE*/
-  /* @media all and (-ms-high-contrast: none), (-ms-high-contrast: active){
-    .textOverImage{background-size:cover!important;}
-  }
+  /* Add the following compatibility code for IE as you can't animate background-size in IE*/
+   /* @media all and (-ms-high-contrast: none), (-ms-high-contrast: active){
+    .textOverImage{background-size:cover!important;} */ 
+  /* } */
   .textOverImage{
       position:relative;
       width:32.5vw;
@@ -114,7 +114,7 @@ h3 {
       left:0;
       right:0;
     transform:translateY(90%);/*use transform:translateY(100%); to remove footer*/
-      /* background-color: rgb(185, 0, 28, 3);
+       background-color: rgb(185, 0, 28, 3);
       color:#fff;
       padding:0 8px;
       content:attr(data-title);
@@ -140,9 +140,9 @@ h3 {
       transform:translateY(100%);
       opacity:0;
       font-family: 'Press Start 2P', cursive;
-    } */
+    } 
     
-    /* .textOverImage:hover:after{
+     .textOverImage:hover:after{
       transform:translateY(0);
       transition:0.5s 0.1s;
       opacity:1;
@@ -154,4 +154,4 @@ h3 {
       background-color: rgb(185, 0, 28);
       transition:0.5s;
       font-family: 'Press Start 2P', cursive;
-  }  */
+  } 

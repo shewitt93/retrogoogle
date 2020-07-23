@@ -51,18 +51,7 @@ const searchTerm = (objectReturn) => {
     animal.description.includes(objectReturn)
   );
 }
-// app.get('/search/animal/:id', function(req, res){
-//     // generate random number that equates to animal
-//     getRandomAnimalNo();
 
-//     // send the random animal
-//     let animal = animals[number];
-//     if(!animal) {
-//         res.send("Error: Please pick a number between 0 and 9");
-//     } else {
-//         res.send(animal);
-//     };
-// });
 
 
 
