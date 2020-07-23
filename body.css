@@ -1,157 +1,161 @@
 body {
     
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-#text {
-  margin-bottom: 100px;
-} 
-#searchbar{
-  margin-bottom: 20px;
-  margin-top: 20px;
   display: flex;
-  justify-content: center;
-}
-.section {
-  
- 
-  padding: 10px;
-  width: 50%;
-  border-radius: 50px;
-  
-  
-  
-  display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
-  text-align: center;
-  }
+}
+#text {
+margin-bottom: 100px;
+} 
+#searchbar{
+margin-bottom: 20px;
+margin-top: 20px;
+display: flex;
+justify-content: center;
+}
+.section {
+
+
+padding: 10px;
+width: 50%;
+border-radius: 50px;
+
+
+
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+text-align: center;
+}
 #hidden{
-  display: none;
+display: none;
 
 }
 /* #visible{
-  display: grid;
+
+display: grid;
 }  */
 
-  
+
+
 h3 {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 50px;
+}
+
+
+.item-a {
+  grid-area: header;
+  color: rgb(185, 0, 28);
+  font-family: 'Roboto', sans-serif;
+  font-size: 60px;
+  text-align: center;
+  margin-bottom: 5vh;
+  
+
+}
+.item-b {
+  grid-area: main;
+  font-family: 'Roboto', sans-serif;
+  
+
+}
+.item-c {
+  grid-area: nav;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 3vh;
+}
+.item-d {
+  grid-area: footer;
+}
+.container {
+  width: 100vw;
+  display: grid;
+  grid-template-columns: 33% 33% 33%;
+  grid-template-rows: auto;
+  grid-template-areas: 
+    ". header ."
+    ". nav ."
+    "main main main"
+    /* "footer footer footer"; */
+}
+
+
+
+a{text-decoration:none;}
+/* Add the following compatibility code for IE as you can't animate background-size in IE*/
+ /* @media all and (-ms-high-contrast: none), (-ms-high-contrast: active){
+  .textOverImage{background-size:cover!important;} */ 
+/* } */
+.textOverImage{
+    position:relative;
+    width:32.5vw;
+    height:50vh;
+    float:left;
+    margin:1px;
+    background-size:100%;
+    background-position:center;
+    transition:0.5s;
+    overflow:hidden;
+    border-radius:4px;
+    box-shadow:0 0 4px #000;
     font-family: 'Press Start 2P', cursive;
-    font-size: 50px;
+    background-repeat: no-repeat;
+    background-size: cover;
+
   }
   
-
-  .item-a {
-    grid-area: header;
-    color: rgb(185, 0, 28);
-    font-family: 'Roboto', sans-serif;
-    font-size: 60px;
-    text-align: center;
-    margin-bottom: 5vh;
-    
+  .textOverImage:hover{
+    background-size:110%;
+  }
   
-  }
-  .item-b {
-    grid-area: main;
-    font-family: 'Roboto', sans-serif;
-    
-  }
-  .item-c {
-    grid-area: nav;
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 3vh;
-  }
-  .item-d {
-    grid-area: footer;
-  }
-  .container {
-    width: 100vw;
-    display: grid;
-    grid-template-columns: 33% 33% 33%;
-    grid-template-rows: auto;
-    grid-template-areas: 
-      ". header ."
-      ". nav ."
-      "main main main"
-      /* "footer footer footer"; */
-  }
+.textOverImage:before{
+  position:absolute;
+    top:0;
+    bottom:0;
+    left:0;
+    right:0;
+  transform:translateY(90%);/*use transform:translateY(100%); to remove footer*/
+     background-color: rgb(185, 0, 28, 3);
+    color:#fff;
+    padding:0 8px;
+    content:attr(data-title);
+    transition:0.5s 0.1s;
+    color:#fff;
+    font-weight:bold;
+    font-size:1.5em;
+    font-family: 'Press Start 2P', cursive;
+}
 
-
-
-  a{text-decoration:none;}
-  /* Add the following compatibility code for IE as you can't animate background-size in IE*/
-   /* @media all and (-ms-high-contrast: none), (-ms-high-contrast: active){
-    .textOverImage{background-size:cover!important;} */ 
-  /* } */
-  .textOverImage{
-      position:relative;
-      width:32.5vw;
-      height:50vh;
-      float:left;
-      margin:3.5px;
-      background-size:100%;
-      background-position:center;
-      transition:0.5s;
-      overflow:hidden;
-      border-radius:4px;
-      box-shadow:0 0 4px #000;
-      font-family: 'Press Start 2P', cursive;
-      background-repeat: no-repeat;
-      background-size: cover;
-    }
-    
-    .textOverImage:hover{
-      background-size:110%;
-    }
-    
-  .textOverImage:before{
+  .textOverImage:after{
     position:absolute;
-      top:0;
-      bottom:0;
-      left:0;
-      right:0;
-    transform:translateY(90%);/*use transform:translateY(100%); to remove footer*/
-       background-color: rgb(185, 0, 28, 3);
-      color:#fff;
-      padding:0 8px;
-      content:attr(data-title);
-      transition:0.5s 0.1s;
-      color:#fff;
-      font-weight:bold;
-      font-size:1.5em;
-      font-family: 'Press Start 2P', cursive;
-  }
-  
-    .textOverImage:after{
-      position:absolute;
-      top:0;
-      bottom:0;
-      left:0;
-      right:0;
-      color:white;
-      padding:8px;
-      content:attr(data-text);
-      transition:0.5s;
-      padding-top:2em;
-      margin-top:8px;
-      transform:translateY(100%);
-      opacity:0;
-      font-family: 'Press Start 2P', cursive;
-    } 
-    
-     .textOverImage:hover:after{
-      transform:translateY(0);
-      transition:0.5s 0.1s;
-      opacity:1;
-      font-family: 'Press Start 2P', cursive;
-    }
-  .textOverImage:hover:before{
-      transform:translateY(0);
-      padding:8px;
-      background-color: rgb(185, 0, 28);
-      transition:0.5s;
-      font-family: 'Press Start 2P', cursive;
+    top:0;
+    bottom:0;
+    left:0;
+    right:0;
+    color:white;
+    padding:8px;
+    content:attr(data-text);
+    transition:0.5s;
+    padding-top:2em;
+    margin-top:8px;
+    transform:translateY(100%);
+    opacity:0;
+    font-family: 'Press Start 2P', cursive;
   } 
+  
+   .textOverImage:hover:after{
+    transform:translateY(0);
+    transition:0.5s 0.1s;
+    opacity:1;
+    font-family: 'Press Start 2P', cursive;
+  }
+.textOverImage:hover:before{
+    transform:translateY(0);
+    padding:8px;
+    background-color: rgb(185, 0, 28);
+    transition:0.5s;
+    font-family: 'Press Start 2P', cursive;
+} 

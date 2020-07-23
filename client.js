@@ -4,6 +4,34 @@ const form = document.getElementById("form");
 const search = document.getElementById("search");
 const lucky = document.getElementById("lucky");
 
+function displayData() {
+  const data = localStorage.getItem('data')
+  // console.log(JSON.parse(data))
+  const parseData = JSON.parse(data)
+  
+   
+  // section.id= "hidden"
+  const results = document.querySelector(".results")  
+  
+  // container.id= "visible"  
+      parseData.map((e, index)=>{
+          console.log(e)
+         
+          const atag = document.createElement("a")
+          
+          
+          
+          
+          
+          results.append(atag)
+          
+          atag.setAttribute("id", index+1)
+          atag.setAttribute("class", "textOverImage item-b")
+          atag.setAttribute("data-title", e.name)
+          atag.setAttribute("data-text", e.description)
+          atag.setAttribute("style", `background-image:url(${e.image})`)
+      })}
+
 function titleCase(str) {
     return str
       .toLowerCase()
@@ -30,7 +58,7 @@ search.addEventListener("click", (e) => {
     question = titleCase(question);
     fetch(`http://localhost:3000/search?q=${question}`)
       .then((r) => r.json())
-      .then((data) => displayData(data))
+      .then((data) => setData(data))
       .catch((err) => console.warn(err));
   });
 lucky.addEventListener("click", (event) => {
@@ -44,65 +72,48 @@ lucky.addEventListener("click", (event) => {
   });
 
 
-function displayData(data) {
-const section = document.querySelector(".section")   
-section.id= "hidden"
-const results = document.querySelector(".results")  
-results.id= "visible"  
-    data.map((e, index)=>{
-        console.log(e)
-        // const para = document.createElement("p")
-        // const header = document.createElement("h4")
-        // const img = document.createElement("img")
-        const atag = document.createElement("a")
+
+// function displayData(data) {
+// localStorage.setItem('data', JSON.stringify(data))
+
+// const section = document.querySelector(".section")   
+// // section.id= "hidden"
+// const results = document.querySelector(".results")  
+// const container = document.querySelector(".container")
+// // container.id= "visible"  
+//     data.map((e, index)=>{
+//         console.log(e)
+       
+//         const atag = document.createElement("a")
+
         
         
         
-        
-        // const img = atag.setAttribute("style", "img")
-        // const header = atag.setAttribute("data-title", "header")
-        // const para= atag.setAttribute("data-text", "para" )
-        results.append(atag)
-        // img.src = e.image
-        // para.textContent = e.description
-        // header.textContent = e.name
-        // atag.classList.add("results")
-        // atag.append(header)
-        // atag.append(img)
-        // atag.append(para)
-        atag.setAttribute("id", index+1)
-        atag.setAttribute("class", "textOverImage item-b")
-        atag.setAttribute("data-title", e.name)
-        atag.setAttribute("data-text", e.description)
-        atag.setAttribute("style", `background-image:url(${e.image})`)
-        // img..setAttribute("style", "background-image")
         
 
-        // document.querySelector().setAttribute()img.style.backgroundImage(img.src);
-        // header.style.dataTitle(header);
-        // para.style.dataText(para);
-        // console.log(atag)
-    })}
+        
+//         results.append(atag)
+        
+//         atag.setAttribute("id", index+1)
+//         atag.setAttribute("class", "textOverImage item-b")
+//         atag.setAttribute("data-title", e.name)
+//         atag.setAttribute("data-text", e.description)
+//         atag.setAttribute("style", `background-image:url(${e.image})`)
+       
+        
+
+       
+//     })}
+
  
+function setData(data) {
+  localStorage.setItem('data', JSON.stringify(data))
+  location.pathname = '/displaypage.html'
+  
 
-    // //const section = document.createElement("section")
-    // const header = document.createElement("h4")
-    // const img = document.createElement("img")
-    // const para = document.createElement("p")
-    // img.src= e.image
-    // para.textContent = e.description
-    // header.textContent = e.name
-    // section.append(header)
-    // section.append(img)
-    // section.append(para)
-    // section.setAttribute("id", index+1)
-    // results.append(section)
-    // console.log(section)
-    // <!-- <main class="item-b">
-    //     <a  class="textOverImage item-b" style="background-image:url(https://i.pinimg.com/originals/45/35/93/45359365063a84ec79dd0430a6c7e7b7.jpg)" data-title="DANIEL OCEAN" data-text="Danny is a risk taker, being no stranger to a life of high stakes crime. Even though he has a lot of blind sides [1], he constantly sees opportunities for cons, having to resist the urge to commit to them. He is loyal and very protective of those close to him. He speaks convincingly [1], lightly, assertively, and confidently, even when under pressure to perform. Nagel describes him as having style and brio. For all of his pulled jobs, Danny has a great deal of foresight to overcome any changes affecting his plans and to be one step ahead of his targets.
-    //     ">
-    //   </a> -->
-      
 
-    
-    
+
+}
+
+         
+            
