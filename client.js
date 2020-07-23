@@ -51,9 +51,9 @@ const results = document.querySelector(".results")
 results.id= "visible"  
     data.map((e, index)=>{
         console.log(e)
-        const para = document.createElement("p")
-        const header = document.createElement("h4")
-        const img = document.createElement("img")
+        // const para = document.createElement("p")
+        // const header = document.createElement("h4")
+        // const img = document.createElement("img")
         const atag = document.createElement("a")
         
         
@@ -62,26 +62,26 @@ results.id= "visible"
         // const img = atag.setAttribute("style", "img")
         // const header = atag.setAttribute("data-title", "header")
         // const para= atag.setAttribute("data-text", "para" )
-       
-        img.src = e.image
-        para.textContent = e.description
-        header.textContent = e.name
-        atag.classList.add("results")
-        atag.append(header)
-        atag.append(img)
-        atag.append(para)
+        results.append(atag)
+        // img.src = e.image
+        // para.textContent = e.description
+        // header.textContent = e.name
+        // atag.classList.add("results")
+        // atag.append(header)
+        // atag.append(img)
+        // atag.append(para)
         atag.setAttribute("id", index+1)
         atag.setAttribute("class", "textOverImage item-b")
-        header.setAttribute("data-title", header.textContent)
-        para.setAttribute("data-text", header.textContent)
-        img.setAttribute("background-image:url", img.src)
+        atag.setAttribute("data-title", e.name)
+        atag.setAttribute("data-text", e.description)
+        atag.setAttribute("style", `background-image:url(${e.image})`)
         // img..setAttribute("style", "background-image")
-        results.append(atag)
+        
 
         // document.querySelector().setAttribute()img.style.backgroundImage(img.src);
         // header.style.dataTitle(header);
         // para.style.dataText(para);
-        console.log(atag)
+        // console.log(atag)
     })}
  
 

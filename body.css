@@ -32,11 +32,9 @@ body {
   display: none;
 
 }
-#visible{
-  display: flex;
-  
-
-} 
+/* #visible{
+  display: grid;
+}  */
 
   
 h3 {
@@ -78,7 +76,7 @@ h3 {
       ". header ."
       ". nav ."
       "main main main"
-      "footer footer footer";
+      /* "footer footer footer"; */
   }
 
 
@@ -93,7 +91,7 @@ h3 {
       width:32.5vw;
       height:50vh;
       float:left;
-      margin:4px;
+      margin:3.5px;
       background-size:100%;
       background-position:center;
       transition:0.5s;
@@ -101,6 +99,8 @@ h3 {
       border-radius:4px;
       box-shadow:0 0 4px #000;
       font-family: 'Press Start 2P', cursive;
+      background-repeat: no-repeat;
+      background-size: cover;
     }
     
     .textOverImage:hover{
