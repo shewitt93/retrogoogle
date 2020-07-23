@@ -33,8 +33,10 @@ display: none;
 
 }
 /* #visible{
+
 display: grid;
 }  */
+
 
 
 h3 {
@@ -57,6 +59,7 @@ h3 {
   grid-area: main;
   font-family: 'Roboto', sans-serif;
   
+
 }
 .item-c {
   grid-area: nav;
@@ -101,6 +104,7 @@ a{text-decoration:none;}
     font-family: 'Press Start 2P', cursive;
     background-repeat: no-repeat;
     background-size: cover;
+
   }
   
   .textOverImage:hover{

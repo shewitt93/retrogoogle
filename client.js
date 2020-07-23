@@ -72,6 +72,7 @@ lucky.addEventListener("click", (event) => {
   });
 
 
+
 // function displayData(data) {
 // localStorage.setItem('data', JSON.stringify(data))
 
@@ -84,10 +85,12 @@ lucky.addEventListener("click", (event) => {
 //         console.log(e)
        
 //         const atag = document.createElement("a")
+
         
         
         
         
+
         
 //         results.append(atag)
         
@@ -101,6 +104,7 @@ lucky.addEventListener("click", (event) => {
 
        
 //     })}
+
  
 function setData(data) {
   localStorage.setItem('data', JSON.stringify(data))
