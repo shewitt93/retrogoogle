@@ -1,36 +1,25 @@
-// const { url } = require("inspector");
-
 const form = document.getElementById("form");
 const search = document.getElementById("search");
 const lucky = document.getElementById("lucky");
 
 function displayData() {
   const data = localStorage.getItem('data')
-  // console.log(JSON.parse(data))
   const parseData = JSON.parse(data)
-  
-   
-  // section.id= "hidden"
   const results = document.querySelector(".results")  
   
-  // container.id= "visible"  
-      parseData.map((e, index)=>{
-          console.log(e)
+    parseData.map((e, index)=>{
+      console.log(e)
          
-          const atag = document.createElement("a")
+      const atag = document.createElement("a")
           
-          
-          
-          
-          
-          results.append(atag)
-          
-          atag.setAttribute("id", index+1)
-          atag.setAttribute("class", "textOverImage item-b")
-          atag.setAttribute("data-title", e.name)
-          atag.setAttribute("data-text", e.description)
-          atag.setAttribute("style", `background-image:url(${e.image})`)
-      })}
+      results.append(atag)
+      
+      atag.setAttribute("id", index+1)
+      atag.setAttribute("class", "textOverImage item-b")
+      atag.setAttribute("data-title", e.name)
+      atag.setAttribute("data-text", e.description)
+      atag.setAttribute("style", `background-image:url(${e.image})`)
+  })}
 
 function titleCase(str) {
     return str
@@ -51,16 +40,22 @@ function titleCase(str) {
   }
 
 
+if (search != null){
+
 
 search.addEventListener("click", (e) => {
     e.preventDefault();
     question = form.input.value; //BUG: breaks when '&' is included in search
     question = titleCase(question);
+    console.log({question})
     fetch(`http://localhost:3000/search?q=${question}`)
       .then((r) => r.json())
       .then((data) => setData(data))
       .catch((err) => console.warn(err));
-  });
+  })};
+if(lucky != null){
+
+
 lucky.addEventListener("click", (event) => {
     event.preventDefault();
     question = form.input.value;
@@ -69,41 +64,11 @@ lucky.addEventListener("click", (event) => {
       .then((r) => r.json())
       .then(openLucky)
       .catch((err) => console.warn("Server Connection Issue"));
-  });
+  })};
 
 
 
-// function displayData(data) {
-// localStorage.setItem('data', JSON.stringify(data))
 
-// const section = document.querySelector(".section")   
-// // section.id= "hidden"
-// const results = document.querySelector(".results")  
-// const container = document.querySelector(".container")
-// // container.id= "visible"  
-//     data.map((e, index)=>{
-//         console.log(e)
-       
-//         const atag = document.createElement("a")
-
-        
-        
-        
-        
-
-        
-//         results.append(atag)
-        
-//         atag.setAttribute("id", index+1)
-//         atag.setAttribute("class", "textOverImage item-b")
-//         atag.setAttribute("data-title", e.name)
-//         atag.setAttribute("data-text", e.description)
-//         atag.setAttribute("style", `background-image:url(${e.image})`)
-       
-        
-
-       
-//     })}
 
  
 function setData(data) {
@@ -116,4 +81,3 @@ function setData(data) {
 }
 
          
-            
