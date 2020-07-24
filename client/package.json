@@ -1,0 +1,22 @@
+{
+  "name": "retrogoogle",
+  "version": "1.0.0",
+  "description": "",
+  "main": "client.js",
+  "scripts": {
+    "start": "serve ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shewitt93/retrogoogle.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/shewitt93/retrogoogle/issues"
+  },
+  "homepage": "https://github.com/shewitt93/retrogoogle#readme",
+  "dependencies": {
+    "serve": "^11.3.2"
+  }
+}
